@@ -7,22 +7,22 @@ export function RestaurantForm() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
-  const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log('Form submitted!');
     dispatch(
       addRestaurant({
-        id: uuidv4(),
+        restaurantId: uuidv4(),
         name,
         location,
-        comments,
+        comment,
       })
     );
     setName('');
     setLocation('');
-    setComments([]);
+    setComment([]);
   }
 
   return (
@@ -44,9 +44,9 @@ export function RestaurantForm() {
       <input
         placeholder="Comments"
         onChange={(e) => {
-          setComments(e.target.value);
+          setComment(e.target.value);
         }}
-        value={comments}
+        value={comment}
       ></input>
       <button onClick={handleSubmit}>Add Restaurant</button>
     </form>

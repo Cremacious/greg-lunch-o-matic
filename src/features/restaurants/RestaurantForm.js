@@ -1,35 +1,54 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { addRestaurant } from './restaurantsSlice';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 export function RestaurantForm() {
-    const dispatch = useDispatch();
-    const [name, setName] = useState('');
-    const [location, setLocation] = useState('');
-    const [comments, setComments] = useState([]);
-
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
+  const [comments, setComments] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log('Form submitted!');
-    dispatch(addRestaurant(
-        {
-            id: uuidv4(),
-            name: name,
-        }
-    ));
+    dispatch(
+      addRestaurant({
+        id: uuidv4(),
+        name,
+        location,
+        comments,
+      })
+    );
+    setName('');
+    setLocation('');
+    setComments([]);
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input onChange={(e)=> {setName(e.target.value)}} type="text" id="name" name="name" />
-      <label htmlFor="location">Location</label>
-      <input type="text" id="location" name="location" />
-      <label htmlFor="comments">Comments</label>
-      <input type="text" id="comments" name="comments" />
-      <button type="submit">Add Restaurant</button>
+    <form>
+      <input
+        placeholder="Name"
+        onChange={(e) => {
+          setName(e.target.value);
+        }}
+        value={name}
+      ></input>
+      <input
+        placeholder="Location"
+        onChange={(e) => {
+          setLocation(e.target.value);
+        }}
+        value={location}
+      ></input>
+      <input
+        placeholder="Comments"
+        onChange={(e) => {
+          setComments(e.target.value);
+        }}
+        value={comments}
+      ></input>
+      <button onClick={handleSubmit}>Add Restaurant</button>
     </form>
   );
 }

@@ -7,7 +7,7 @@ export const restaurantsSlice = createSlice({
   },
   reducers: {
     addRestaurant: (state, action) => {
-      const { id, name, location, comments } = action.payload;
+      const {id, name, location, comments} = action.payload; // TODO: 
       const newRestaurant = {
         id,
         name,

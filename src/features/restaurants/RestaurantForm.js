@@ -16,14 +16,15 @@ export function RestaurantForm() {
     dispatch(addRestaurant(
         {
             id: uuidv4(),
+            name: name,
         }
     ));
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
-      <input type="text" id="name" name="name" />
+      <input onChange={(e)=> {setName(e.target.value)}} type="text" id="name" name="name" />
       <label htmlFor="location">Location</label>
       <input type="text" id="location" name="location" />
       <label htmlFor="comments">Comments</label>

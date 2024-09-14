@@ -7,26 +7,15 @@ export const restaurantsSlice = createSlice({
   },
   reducers: {
     addRestaurant: (state, action) => {
-      const {restaurantId, name, location, comment} = action.payload; // TODO: 
+      const { restaurantId, name, location, comment } = action.payload; // TODO: Allow comments to be added to the restaurant
       const newRestaurant = {
         restaurantId,
         name,
         location,
-        comments: [],
       };
       state.restaurants.push(newRestaurant);
     },
-    addComment: (state, action) => {
-      const {restaurantId, comment} = action.payload;
-      state.restaurants[restaurantId].comments.push(comment);
-    }
   },
-  // extraReducers: {
-  //   'comments/addComment' : (state, action) => {
-  //     const { restaurantId, comment } = action.payload;
-
-  //   }
-  // }
 });
 
 export const selectRestaurants = (state) => state.restaurants.restaurants;

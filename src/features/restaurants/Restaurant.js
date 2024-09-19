@@ -2,21 +2,24 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectRestaurants } from './restaurantsSlice';
 
-
 export function Restaurant() {
   const restaurants = useSelector(selectRestaurants);
 
+
+  
   return (
     <div>
-      {restaurants.map((restaurant) => {
-        return (
-          <li key={restaurant.id}>
-            <h2>{restaurant.name}</h2>
-            <p>{restaurant.location}</p>
-            {/* <Comments restaurantId={restaurant.restaurantId} /> */}
-          </li>
-        );
-      })}
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            
+            <p>PICTURE</p>
+            <h4 class="text-center card-title">Title</h4>
+            <h6 class="text-muted card-subtitle mb-2">LOCATION</h6>
+            <p class="text-center card-text">COMMENT</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

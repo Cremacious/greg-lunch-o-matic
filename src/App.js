@@ -1,24 +1,31 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Restaurants } from './features/restaurants/Restaurants';
+import { RestaurantForm } from './features/restaurants/RestaurantForm';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Restaurants />
-      <div class="container">
-        <div class="card">
-          <div class="card-body">
-            <button class="btn btn-primary" type="button">
-              Add Restaurant
-            </button>
-            <button class="btn btn-primary" type="button">
-              Manage Restaurants
-            </button>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<RestaurantForm />} />
+          <Route path="/restaurants" element={<Restaurants />} />
+        </Routes>
+        <div className="container">
+          <div className="card">
+            <div className="card-body">
+              <Link to="/" className="btn btn-primary">
+                Add Restaurant
+              </Link>
+              <Link to="/restaurants" className="btn btn-primary">
+                Manage Restaurants
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

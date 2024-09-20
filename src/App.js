@@ -13,7 +13,7 @@ function App() {
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <Link className="navbar-brand" to="/">
-            Restaurantsssss App
+            Restaurants App
           </Link>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav mr-auto">
@@ -35,7 +35,7 @@ function App() {
             <Route path="/" element={<AddView/>} />
             <Route path="/addrestaurant" element={<RestaurantForm />} />
             <Route path="/restaurants" element={<Restaurants />} />
-            <Route path="/restaurant/:id" element={<Restaurant />} />
+            <Route path="/restaurant/:restaurantId" element={<Restaurant />} />
           </Routes>
         </div>
       </div>

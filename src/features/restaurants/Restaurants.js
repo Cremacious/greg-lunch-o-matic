@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectRestaurants } from './restaurantsSlice';
+import { Link } from 'react-router-dom';
 
 export function Restaurants() {
   const restaurants = useSelector(selectRestaurants);
@@ -13,9 +14,8 @@ export function Restaurants() {
           <div class="card-body">
             <div class="text-center">
               {restaurants.map((restaurant) => (
-                <a class="btn btn-primary" role="button" href="index.html">
-                  {restaurant.name}
-                </a>
+                <Link to={`/restaurant/${restaurant.restaurantId}`} className="btn btn-primary">{restaurant.name}
+                </Link>
               ))}
             </div>
           </div>

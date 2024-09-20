@@ -9,11 +9,11 @@ export function AddView() {
               <Link to="/addrestaurant" className="btn btn-primary" role="button">
                 Add Restaurant
               </Link>
-              <button className="btn btn-primary" type="button">
-                Manage Restaurants
-              </button>
+              <Link to="/restaurants" className="btn btn-primary" role="button">
+                View Restaurants
+              </Link>
             </div>
           </div>
         </div>
   );
-} // This code defines a simple React component called AddView.
+}

@@ -14,7 +14,7 @@ export function Restaurants() {
           <div class="card-body">
             <div class="text-center">
               {restaurants.map((restaurant) => (
-                <Link to={`/restaurant/${restaurant.restaurantId}`} className="btn btn-primary">{restaurant.name}
+                <Link to={`/restaurant/${restaurant.name}`} className="btn btn-primary">{restaurant.name}
                 </Link>
               ))}
             </div>

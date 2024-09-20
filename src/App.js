@@ -35,7 +35,7 @@ function App() {
             <Route path="/" element={<AddView/>} />
             <Route path="/addrestaurant" element={<RestaurantForm />} />
             <Route path="/restaurants" element={<Restaurants />} />
-            <Route path="/restaurant/:restaurantId" element={<Restaurant />} />
+            <Route path="/restaurant/:restaurantName" element={<Restaurant />} />
           </Routes>
         </div>
       </div>

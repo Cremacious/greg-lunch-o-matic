@@ -5,19 +5,23 @@ import { useParams } from 'react-router-dom';
 
 export function Restaurant() {
   const restaurants = useSelector(selectRestaurants);
-  const { restaurantId } = useParams();
+  const { restaurantName } = useParams();
   const restaurant = restaurants.find(
-    (restaurant) => restaurant.restaurantId === restaurantId
+    (restaurant) => restaurant.name === restaurantName
   );
+
+  if (!restaurant) {
+    return <div>Restaurant not found</div>;
+  }
 
   return (
     <div>
-      <div class="container">
-        <div class="card">
-          <div class="card-body">
+      <div className="container">
+        <div className="card">
+          <div className="card-body">
             <div>
-              <h4 class="text-center card-title">{restaurant.name}</h4>
-              <h6 class="text-muted card-subtitle mb-2">
+              <h4 className="text-center card-title">{restaurant.name}</h4>
+              <h6 className="text-muted card-subtitle mb-2">
                 {restaurant.location}
               </h6>
               <h3>Comments</h3>

@@ -7,11 +7,12 @@ export const restaurantsSlice = createSlice({
   },
   reducers: {
     addRestaurant: (state, action) => {
-      const { restaurantId, name, location,} = action.payload; // TODO: Allow comments to be added to the restaurant
+      const { restaurantId, name, location, comment} = action.payload; // TODO: Allow comments to be added to the restaurant
       const newRestaurant = {
         restaurantId,
         name,
         location,
+        comments: [comment]
       };
       state.restaurants.push(newRestaurant);
     },

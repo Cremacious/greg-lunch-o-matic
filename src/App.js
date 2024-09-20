@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Restaurants } from './features/restaurants/Restaurants';
 import { RestaurantForm } from './features/restaurants/RestaurantForm';
 import { Restaurant } from './features/restaurants/Restaurant';
+import { AddView } from './components/AddView';
 import './App.css';
 
 function App() {
@@ -16,7 +18,7 @@ function App() {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/addrestaurant">
                   Add Restaurant
                 </Link>
               </li>
@@ -30,7 +32,8 @@ function App() {
         </nav>
         <div className="container mt-3">
           <Routes>
-            <Route path="/" element={<RestaurantForm />} />
+            <Route path="/" element={<AddView/>} />
+            <Route path="/addrestaurant" element={<RestaurantForm />} />
             <Route path="/restaurants" element={<Restaurants />} />
             <Route path="/restaurant/:id" element={<Restaurant />} />
           </Routes>

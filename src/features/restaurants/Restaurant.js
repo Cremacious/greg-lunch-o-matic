@@ -5,14 +5,19 @@ import { selectRestaurants } from './restaurantsSlice';
 export function Restaurant() {
   const restaurants = useSelector(selectRestaurants);
 
-
-  
   return (
     <div>
       <div class="container">
         <div class="card">
           <div class="card-body">
-            
+            {restaurants.map((restaurant) => (
+              <div>
+                <h4 class="text-center card-title">{restaurant.name}</h4>
+                <h6 class="text-muted card-subtitle mb-2">
+                  {restaurant.location}
+                </h6>
+              </div>
+            ))}
             <p>PICTURE</p>
             <h4 class="text-center card-title">Title</h4>
             <h6 class="text-muted card-subtitle mb-2">LOCATION</h6>

@@ -25,10 +25,11 @@ export function AddView() {
                     </div>
                     <div className="text-center">
                       <img
+                        className="img-fluid"
                         src="lunch0matic.png"
                         width="413"
                         height="38"
-                        alt="Lunch-o-matic"
+                        alt=""
                       />
                     </div>
                   </div>

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectRestaurants } from './restaurantsSlice';
 import { useParams } from 'react-router-dom';
 import { CommentForm } from '../comments/CommentForm';
+import Map from './Map';
 
 export function Restaurant() {
   const restaurants = useSelector(selectRestaurants);
@@ -25,6 +26,7 @@ export function Restaurant() {
               <h6 className="text-muted card-subtitle mb-2">
                 {restaurant.location}
               </h6>
+              <Map address={restaurant.location} />
               <h3>Comments</h3>
               <CommentForm restaurantId={restaurant.restaurantId} />
               <ul>

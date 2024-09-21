@@ -11,31 +11,15 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <Link className="navbar-brand" to="/">
-            Restaurants App
-          </Link>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/addrestaurant">
-                  Add Restaurant
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/restaurants">
-                  Manage Restaurants
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
         <div className="container mt-3">
           <Routes>
-            <Route path="/" element={<AddView/>} />
+            <Route path="/" element={<AddView />} />
             <Route path="/addrestaurant" element={<RestaurantForm />} />
             <Route path="/restaurants" element={<Restaurants />} />
-            <Route path="/restaurant/:restaurantName" element={<Restaurant />} />
+            <Route
+              path="/restaurant/:restaurantName"
+              element={<Restaurant />}
+            />
           </Routes>
         </div>
       </div>

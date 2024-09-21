@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { currentDate, newCommentId } from '../../utilities/dateConverter';
 
 export const restaurantsSlice = createSlice({
   name: 'restaurants',
@@ -8,20 +9,28 @@ export const restaurantsSlice = createSlice({
   reducers: {
     addRestaurant: (state, action) => {
       const { restaurantId, name, location, comment} = action.payload; // TODO: Allow comments to be added to the restaurant
+      const newComment = {
+        restaurantId,
+        commentId: newCommentId,
+        commentDate: currentDate,
+        comment,
+      }
       const newRestaurant = {
         restaurantId,
         name,
         location,
-        comments: [comment]
+        comments: [newComment]
       };
       state.restaurants.push(newRestaurant);
     },
     newComment: (state, action) => {
-      const { restaurantId, commentId, comment } = action.payload;
+      const { restaurantId, commentId, commentDate, comment } = action.payload;
       const restaurant = state.restaurants.find((restaurant) => restaurant.restaurantId === restaurantId);
       if (restaurant) {
         restaurant.comments.push({
+          restaurantId,
           commentId,
+          commentDate,
           comment,
         });
       }

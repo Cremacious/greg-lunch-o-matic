@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { newComment } from '../restaurants/restaurantsSlice'; // Ensure this path is correct
+import { newComment } from '../restaurants/restaurantsSlice';
+import { currentDate, newCommentId } from '../../utilities/dateConverter';
 
 export function CommentForm({ restaurantId }) {
   const [comment, setComment] = useState('');
@@ -8,7 +9,7 @@ export function CommentForm({ restaurantId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(newComment({ restaurantId, commentId: Date.now(), comment }));
+    dispatch(newComment({ restaurantId, commentId: newCommentId, commentDate: currentDate, comment }));
     setComment('');
   };
 

@@ -6,16 +6,17 @@ const containerStyle = {
   height: '400px'
 };
 
-const center = {
+const defaultCenter = {
   lat: -3.745,
   lng: -38.523
 };
 
 function Map({ address }) {
-  const [location, setLocation] = React.useState(center);
+  const [location, setLocation] = React.useState(defaultCenter);
+  const [zoom, setZoom] = React.useState(15); // Set initial zoom level
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'YOUR_GOOGLE_MAPS_API_KEY', // Replace with your API key
+    googleMapsApiKey: 'AIzaSyC5joR8QlpRgdJEgy3R37DuyRxlKTjZlOo', // Replace with your actual API key
   });
 
   React.useEffect(() => {
@@ -29,6 +30,7 @@ function Map({ address }) {
               lat: results[0].geometry.location.lat(),
               lng: results[0].geometry.location.lng()
             });
+            setZoom(18); // Zoom in more when the location is found
           } else {
             console.error('Geocode was not successful for the following reason: ' + status);
           }
@@ -51,9 +53,9 @@ function Map({ address }) {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={location}
-      zoom={10}
+      zoom={zoom} // Use the zoom state
     >
-      <Marker position={location} />
+      <Marker position={location} /> {/* Place a pin at the geocoded location */}
     </GoogleMap>
   );
 }

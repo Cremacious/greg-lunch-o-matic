@@ -26,29 +26,93 @@ export function RestaurantForm() {
   }
 
   return (
-    <form>
-      <input
-        placeholder="Name"
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-        value={name}
-      ></input>
-      <input
-        placeholder="Location"
-        onChange={(e) => {
-          setLocation(e.target.value);
-        }}
-        value={location}
-      ></input>
-      <input
-        placeholder="Comments"
-        onChange={(e) => {
-          setComment(e.target.value);
-        }}
-        value={comment}
-      ></input>
-      <button onClick={handleSubmit}>Add Restaurant</button>
-    </form>
+    <section style={{ marginTop: '22px' }}>
+      <div className="container">
+        <div className="card">
+          <div
+            className="card-body"
+            style={{ background: 'var(--bs-form-valid-border-color)' }}
+          >
+            <div className="card">
+              <div className="card-body">
+                <form onSubmit={handleSubmit}>
+                  <div className="mb-3">
+                    <label htmlFor="name" className="form-label">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="location" className="form-label">
+                      Location
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="location"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="comment" className="form-label">
+                      Comment
+                    </label>
+                    <textarea
+                      className="form-control"
+                      id="comment"
+                      value={comment}
+                      onChange={(e) => setComment(e.target.value)}
+                    ></textarea>
+                  </div>
+                  <button type="submit" className="btn btn-primary">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
+
+// <form onSubmit={handleSubmit}>
+//   <div className="mb-3">
+//     <label htmlFor="name" className="form-label">Name</label>
+//     <input
+//       type="text"
+//       className="form-control"
+//       id="name"
+//       value={name}
+//       onChange={(e) => setName(e.target.value)}
+//     />
+//   </div>
+//   <div className="mb-3">
+//     <label htmlFor="location" className="form-label">Location</label>
+//     <input
+//       type="text"
+//       className="form-control"
+//       id="location"
+//       value={location}
+//       onChange={(e) => setLocation(e.target.value)}
+//     />
+//   </div>
+//   <div className="mb-3">
+//     <label htmlFor="comment" className="form-label">Comment</label>
+//     <textarea
+//       className="form-control"
+//       id="comment"
+//       value={comment}
+//       onChange={(e) => setComment(e.target.value)}
+//     ></textarea>
+//   </div>
+//   <button type="submit" className="btn btn-primary">Submit</button>
+// </form>

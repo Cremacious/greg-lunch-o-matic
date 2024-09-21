@@ -11,6 +11,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+
         <div className="container mt-3">
           <Routes>
             <Route path="/" element={<AddView />} />

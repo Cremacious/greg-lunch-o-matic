@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectRestaurants } from './restaurantsSlice';
 import { useParams } from 'react-router-dom';
+import { CommentForm } from '../comments/CommentForm';
 
 export function Restaurant() {
   const restaurants = useSelector(selectRestaurants);
@@ -25,9 +26,11 @@ export function Restaurant() {
                 {restaurant.location}
               </h6>
               <h3>Comments</h3>
+              <CommentForm restaurantId={restaurant.restaurantId} />
               <ul>
-                {restaurant.comments.map((comment, index) => (
-                  <li key={index}>{comment}</li>
+                {restaurant.comments.map((comment) => (
+                  <li>{comment.comment}</li>
+                  // <li key={index}>{comment}</li>
                 ))}
               </ul>
             </div>

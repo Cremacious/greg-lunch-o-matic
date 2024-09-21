@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectRestaurants, newComment } from '../restaurants/restaurantsSlice'; // Ensure this path is correct
+import { useDispatch } from 'react-redux';
+import { newComment } from '../restaurants/restaurantsSlice'; // Ensure this path is correct
 
 export function CommentForm({ restaurantId }) {
   const [comment, setComment] = useState('');
   const dispatch = useDispatch();
-  const restaurants = useSelector(selectRestaurants);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -25,6 +25,11 @@ export function Restaurant() {
                 {restaurant.location}
               </h6>
               <h3>Comments</h3>
+              <ul>
+                {restaurant.comments.map((comment, index) => (
+                  <li key={index}>{comment}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

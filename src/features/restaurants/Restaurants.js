@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectRestaurants } from './restaurantsSlice';
+import { Link } from 'react-router-dom';
 
 export function Restaurants() {
   const restaurants = useSelector(selectRestaurants);
@@ -94,13 +95,12 @@ export function Restaurants() {
                             <div className="card">
                               <div className="card-body">
                                 <div className="text-center">
-                                  <button
+                                  <Link
+                                    to={`/restaurant/${restaurant.name}`}
                                     className="btn btn-success"
-                                    type="button"
-                                    style={{ textAlign: 'center' }}
                                   >
-                                    Check out!
-                                  </button>
+                                    Check It Out!
+                                  </Link>
                                 </div>
                               </div>
                             </div>
@@ -145,6 +145,3 @@ export function Restaurants() {
     </section>
   );
 }
-
-// <Link to={`/restaurant/${restaurant.name}`} className="btn btn-primary">{restaurant.name}
-// </Link>

@@ -53,9 +53,10 @@ export function Restaurant() {
                     {restaurant.location}
                   </h2>
                 </div>
-                <div className="text-center">
+                <div className="d-flex justify-content-center">
                   <Map address={restaurant.location} />
                 </div>
+
                 <div className="text-center" style={{ marginTop: '10px' }}>
                   <h2
                     style={{

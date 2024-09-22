@@ -30,7 +30,7 @@ function Map({ address }) {
               lat: results[0].geometry.location.lat(),
               lng: results[0].geometry.location.lng()
             });
-            setZoom(18); // Zoom in more when the location is found
+            setZoom(16); // Zoom in more when the location is found
           } else {
             console.error('Geocode was not successful for the following reason: ' + status);
           }

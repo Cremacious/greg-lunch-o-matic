@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectRestaurants } from './restaurantsSlice';
 import { Link } from 'react-router-dom';
+import { SearchBar } from '../../components/Search/SearchBar';
 
 export function Restaurants() {
   const restaurants = useSelector(selectRestaurants);
@@ -22,6 +23,7 @@ export function Restaurants() {
                 className="card-body"
                 style={{ color: 'var(--bs-form-valid-border-color)' }}
               >
+                <SearchBar />
                 <div className="text-center">
                   <h1
                     style={{
@@ -31,12 +33,6 @@ export function Restaurants() {
                   >
                     Restaurants
                   </h1>
-                </div>
-                <div className="text-center">
-                  <input
-                    type="search"
-                    placeholder="Search for a restaurant..."
-                  />
                 </div>
                 {restaurants.map((restaurant) => (
                   <div

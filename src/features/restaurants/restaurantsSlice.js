@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { currentDate, newCommentId } from '../../utilities/dateConverter';
+import { restaurantData } from '../../app/data';
 
 export const restaurantsSlice = createSlice({
   name: 'restaurants',
   initialState: {
-    restaurants: [],
+    // restaurants: [],
+    restaurants: restaurantData,
   },
   reducers: {
     addRestaurant: (state, action) => {

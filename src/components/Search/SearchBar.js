@@ -10,16 +10,18 @@ export function SearchBar () {
 
     const [searchTerm, setSearchTerm] = useState('');
 
-    const handleChange = (e) => {
+    const onSearchChange = (e) => {
         setSearchTerm(e);
     }
 
     return (
         <div>
-            <input onChange={(e) => {handleChange(e.target.value)}} type="text" placeholder="Search..." />
-            {restaurants.filter((restaurant) => restaurant.name.includes(searchTerm)).map((restaurant) => (
-                <h1 key={restaurant.id}>{restaurant.name}</h1>
-            ))}
+            <input onChange={onSearchChange} type="text" placeholder="Search..." />
+
+        {restaurants.filter((restaurant) => restaurant.name.toLowerCase().includes(searchTerm)).map(filteredRestaurant => (
+            <div key={filteredRestaurant.id}><h1>{filteredRestaurant.name}</h1></div>
+        ))}
+
         </div>
     )
 }

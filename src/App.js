@@ -11,8 +11,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-
-        <div className="container mt-3">
+        <div>
           <Routes>
             <Route path="/" element={<AddView />} />
             <Route path="/addrestaurant" element={<RestaurantForm />} />

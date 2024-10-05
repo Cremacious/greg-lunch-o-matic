@@ -26,42 +26,38 @@ export function RestaurantForm() {
   }
 
   return (
-                <form onSubmit={handleSubmit}>
-                  <div>
-                    <label htmlFor="name" className="form-label">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="location" className="form-label">
-                      Location
-                    </label>
-                    <input
-                      type="text"
-                      id="location"
-                      value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="comment">
-                      Comment
-                    </label>
-                    <textarea
-                      id="comment"
-                      value={comment}
-                      onChange={(e) => setComment(e.target.value)}
-                    ></textarea>
-                  </div>
-                  <button type="submit">
-                    Submit
-                  </button>
-                </form>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="location" className="form-label">
+          Location
+        </label>
+        <input
+          type="text"
+          id="location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="comment">Comment</label>
+        <textarea
+          id="comment"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        ></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
